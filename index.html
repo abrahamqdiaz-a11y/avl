@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Avida Luna Wellness | Concierge Mobile IV &amp; Wellness</title>
+  <meta name="description" content="Concierge mobile IV hydration, vitamin injections, peptide support and private wellness experiences, delivered by a registered nurse under medical oversight.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white: #FFFFFF;
+      --ink: #111111;
+      --ink-soft: #4A4A4A;
+      --olive: #34392F;       /* charcoal olive: final band + footer */
+      --olive-deep: #272B23;
+      --sage: #576D52;        /* buttons + links */
+      --sage-hover: #465941;
+      --sage-light: #EEF2EB;  /* section backgrounds */
+      --sage-line: #D7E0D3;
+      --radius: 18px;
+      --max: 1120px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--white);
+      color: var(--ink);
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: var(--sage); text-underline-offset: 3px; }
+    a:hover { color: var(--sage-hover); }
+
+    h1, h2, h3 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 600;
+      line-height: 1.1;
+      margin: 0 0 .5em;
+      letter-spacing: -.01em;
+    }
+    h1 { font-size: clamp(2.6rem, 6vw, 4.4rem); }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); }
+    h3 { font-size: 1.6rem; }
+    p { margin: 0 0 1em; }
+
+    .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+    .eyebrow {
+      display: inline-block;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: 14px 28px;
+      border-radius: 999px;
+      background: var(--sage);
+      color: var(--white);
+      font-weight: 600;
+      font-size: .95rem;
+      text-decoration: none;
+      border: 2px solid var(--sage);
+      transition: background .2s, border-color .2s, transform .2s;
+    }
+    .btn:hover { background: var(--sage-hover); border-color: var(--sage-hover); color: var(--white); transform: translateY(-1px); }
+    .btn:focus-visible, a:focus-visible { outline: 3px solid var(--sage); outline-offset: 3px; }
+    .btn-ghost { background: transparent; color: var(--sage); }
+    .btn-ghost:hover { background: var(--sage); color: var(--white); }
+    .btn-light { background: var(--white); border-color: var(--white); color: var(--olive); }
+    .btn-light:hover { background: var(--sage-light); border-color: var(--sage-light); color: var(--olive); }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #EFEFEF;
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .logo {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.55rem; font-weight: 600;
+      color: var(--ink); text-decoration: none;
+      display: flex; align-items: center; gap: .55rem;
+    }
+    .logo svg { width: 26px; height: 26px; color: var(--sage); }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a:not(.btn) { color: var(--ink); text-decoration: none; font-size: .93rem; font-weight: 500; }
+    .nav-links a:not(.btn):hover { color: var(--sage); }
+    .nav-links .btn { padding: 10px 22px; }
+
+    /* Hero */
+    .hero { padding: 96px 0 104px; }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 64px; align-items: center; }
+    .hero p.lead { font-size: 1.15rem; color: var(--ink-soft); max-width: 34ch; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 2rem; }
+    .hero-card {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      border-radius: 200px 200px var(--radius) var(--radius);
+      background:
+        radial-gradient(circle at 70% 22%, rgba(255,255,255,.9) 0 11%, transparent 11.5%),
+        linear-gradient(165deg, #DCE5D7 0%, #B9C9B2 55%, #8FA588 100%);
+      overflow: hidden;
+    }
+    .hero-card::after {
+      content: ""; position: absolute; inset: auto -10% -18% -10%; height: 55%;
+      background: radial-gradient(ellipse at 50% 100%, rgba(87,109,82,.55), transparent 70%);
+    }
+    .hero-badge {
+      position: absolute; left: 24px; bottom: 24px; right: 24px; z-index: 1;
+      background: var(--white); border-radius: 14px; padding: 16px 20px;
+      display: flex; gap: 14px; align-items: center;
+      box-shadow: 0 14px 40px rgba(39,43,35,.15);
+      font-size: .9rem;
+    }
+    .hero-badge strong { display: block; font-size: .98rem; }
+    .hero-badge span { color: var(--ink-soft); }
+    .badge-icon {
+      flex: none; width: 42px; height: 42px; border-radius: 50%;
+      background: var(--sage-light); color: var(--sage);
+      display: grid; place-items: center;
+    }
+
+    /* Trust strip */
+    .trust { border-top: 1px solid #EFEFEF; border-bottom: 1px solid #EFEFEF; }
+    .trust ul {
+      list-style: none; margin: 0; padding: 22px 0;
+      display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px 32px;
+      font-size: .9rem; font-weight: 500;
+    }
+    .trust li { display: flex; align-items: center; gap: .55rem; }
+    .trust li::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--sage); }
+
+    /* Sections */
+    section.block { padding: 104px 0; }
+    .tint { background: var(--sage-light); }
+    .section-head { max-width: 640px; margin-bottom: 56px; }
+    .section-head p { color: var(--ink-soft); }
+
+    .services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .service {
+      background: var(--white);
+      border: 1px solid var(--sage-line);
+      border-radius: var(--radius);
+      padding: 36px;
+      display: flex; flex-direction: column;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .service:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(52,57,47,.10); }
+    .service .icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      background: var(--sage-light); color: var(--sage);
+      display: grid; place-items: center; margin-bottom: 22px;
+    }
+    .service p { color: var(--ink-soft); }
+    .service ul { margin: 0 0 1.4rem; padding: 0; list-style: none; }
+    .service li { padding: 8px 0; border-top: 1px solid #F0F2EE; font-size: .95rem; }
+    .service li:first-child { border-top: 0; }
+    .service a.more { margin-top: auto; font-weight: 600; font-size: .95rem; text-decoration: none; }
+    .service a.more:hover { text-decoration: underline; }
+
+    /* Process */
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; counter-reset: step; }
+    .step { border-top: 2px solid var(--ink); padding-top: 24px; }
+    .step::before {
+      counter-increment: step; content: "0" counter(step);
+      display: block; font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.1rem; font-weight: 600; color: var(--sage); margin-bottom: .6rem;
+    }
+    .step p { color: var(--ink-soft); }
+
+    /* About */
+    .about { display: grid; grid-template-columns: .9fr 1.1fr; gap: 64px; align-items: center; }
+    .about-art {
+      aspect-ratio: 1; border-radius: var(--radius);
+      background:
+        radial-gradient(circle at 30% 30%, #FFFFFF 0 18%, transparent 18.5%),
+        linear-gradient(135deg, #C9D6C3, #7F977A);
+    }
+    .about blockquote {
+      margin: 1.6rem 0 0; padding-left: 20px; border-left: 3px solid var(--sage);
+      font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.45rem; line-height: 1.35;
+    }
+
+    /* Final band */
+    .band { background: var(--olive); color: var(--white); padding: 96px 0; text-align: center; }
+    .band h2 { color: var(--white); max-width: 18ch; margin: 0 auto .5em; }
+    .band p { color: rgba(255,255,255,.78); max-width: 52ch; margin: 0 auto 2rem; }
+
+    /* Footer */
+    footer { background: var(--olive-deep); color: rgba(255,255,255,.75); padding: 64px 0 32px; font-size: .92rem; }
+    footer a { color: var(--white); text-decoration: none; }
+    footer a:hover { color: #C9D6C3; text-decoration: underline; }
+    .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,.12); }
+    footer .logo { color: var(--white); margin-bottom: 1rem; }
+    footer .logo svg { color: #A9BCA3; }
+    footer h4 { color: var(--white); font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; margin: 0 0 1rem; }
+    footer ul { list-style: none; margin: 0; padding: 0; }
+    footer li { margin-bottom: .55rem; }
+    .fine { padding-top: 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: .82rem; color: rgba(255,255,255,.55); }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid, .about { grid-template-columns: 1fr; gap: 48px; }
+      .hero { padding: 56px 0 72px; }
+      .hero-card { max-width: 420px; }
+      .services { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; gap: 32px; }
+      .foot-grid { grid-template-columns: 1fr 1fr; }
+      .foot-grid > :first-child { grid-column: 1 / -1; }
+      section.block { padding: 72px 0; }
+      .nav-links a:not(.btn) { display: none; }
+    }
+    @media (max-width: 520px) {
+      .wrap { padding: 0 16px; }
+      .service { padding: 28px 24px; }
+      .foot-grid { grid-template-columns: 1fr; }
+      .trust ul { justify-content: flex-start; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap nav">
+      <a class="logo" href="#top" aria-label="Avida Luna Wellness home">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        Avida Luna
+      </a>
+      <nav class="nav-links" aria-label="Main">
+        <a href="#services">Services</a>
+        <a href="#how">How it works</a>
+        <a href="#about">About</a>
+        <a class="btn" href="#book">Book a visit</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">Concierge mobile wellness</span>
+          <h1>Nurse-led care that comes to you.</h1>
+          <p class="lead">IV hydration, vitamin injections and recovery therapies delivered to your home, office or event by a licensed nurse, with medical oversight on every visit.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#book">Book a visit</a>
+            <a class="btn btn-ghost" href="#services">Explore services</a>
+          </div>
+        </div>
+        <div class="hero-card" role="img" aria-label="Soft sage illustration with a crescent moon">
+          <div class="hero-badge">
+            <div class="badge-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m8.5 12 2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <strong>Medically supervised</strong>
+              <span>Telehealth clearance before every treatment</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust">
+      <div class="wrap">
+        <ul>
+          <li>Registered nurse administered</li>
+          <li>Medical oversight</li>
+          <li>Telehealth screening</li>
+          <li>Home, office &amp; events</li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="block tint" id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Services</span>
+          <h2>Wellness, tailored to you</h2>
+          <p>Every treatment begins with a telehealth consultation and medical clearance, so your care is safe, personal and right for your body.</p>
+        </div>
+
+        <div class="services">
+          <article class="service">
+            <div class="icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3s6 6.6 6 11a6 6 0 0 1-12 0c0-4.4 6-11 6-11Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>IV Drip Hydration</h3>
+            <p>Customized intravenous nutrient therapies to rehydrate and restore.</p>
+            <ul>
+              <li>Lactated Ringer's for fast hydration</li>
+              <li>Athlete Recovery with amino acids &amp; B12</li>
+              <li>Detox &amp; hangover support</li>
+            </ul>
+            <a class="more" href="#book">Book an IV &rarr;</a>
+          </article>
+
+          <article class="service">
+            <div class="icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m18 2 4 4M14 6l4 4M6 14l4 4M3 21l3-3M16 4 4.5 15.5l4 4L20 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Vitamin &amp; Wellness Injections</h3>
+            <p>Targeted shots, like B12, designed to support energy and metabolism.</p>
+            <ul>
+              <li>B12 energy boost</li>
+              <li>Quick visits, minimal downtime</li>
+            </ul>
+            <a class="more" href="#book">Book an injection &rarr;</a>
+          </article>
+
+          <article class="service">
+            <div class="icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Peptide Support &amp; Red Light Therapy</h3>
+            <p>Advanced cellular and recovery support to help balance the nervous system and ease physical fatigue.</p>
+            <ul>
+              <li>Peptide protocols</li>
+              <li>Red light recovery sessions</li>
+            </ul>
+            <a class="more" href="#book">Ask about recovery &rarr;</a>
+          </article>
+
+          <article class="service">
+            <div class="icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="9" cy="8" r="3.2" stroke="currentColor" stroke-width="1.8"/><circle cx="17" cy="9.5" r="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 14.3c3 .1 6 2.1 6 5.7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Private Wellness Experiences</h3>
+            <p>Tailored wellness workshops and group packages for special occasions.</p>
+            <ul>
+              <li>Special events &amp; celebrations</li>
+              <li>Community gatherings</li>
+              <li>Corporate &amp; team wellness</li>
+            </ul>
+            <a class="more" href="#book">Plan an event &rarr;</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="how">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">How it works</span>
+          <h2>Simple, safe, at your door</h2>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <h3>Book your visit</h3>
+            <p>Choose your service and a time and place that suits you: home, office, hotel or event.</p>
+          </div>
+          <div class="step">
+            <h3>Telehealth clearance</h3>
+            <p>A quick virtual consultation reviews your health history and confirms your treatment is right for you.</p>
+          </div>
+          <div class="step">
+            <h3>Relax &amp; restore</h3>
+            <p>Your nurse arrives with everything needed and cares for you from start to finish.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block tint" id="about">
+      <div class="wrap about">
+        <div class="about-art" aria-hidden="true"></div>
+        <div>
+          <span class="eyebrow">About</span>
+          <h2>Clinical expertise, concierge comfort</h2>
+          <p>Avida Luna Wellness brings the care of a licensed nurse together with the ease of a concierge service. Every visit is personal, unhurried and backed by medical oversight, so you can feel your best without the waiting room.</p>
+          <blockquote>Wellness that meets you where you are.</blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="book">
+      <div class="wrap">
+        <h2>Ready to feel restored?</h2>
+        <p>Book a visit or reach out with questions. We'll help you choose the right treatment and schedule your telehealth clearance.</p>
+        <a class="btn btn-light" href="mailto:hello@example.com">Book your visit</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <a class="logo" href="#top">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            Avida Luna Wellness
+          </a>
+          <p>Concierge mobile IV &amp; wellness services, serving Bradenton and surrounding areas.</p>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">IV Drip Hydration</a></li>
+            <li><a href="#services">Vitamin Injections</a></li>
+            <li><a href="#services">Peptides &amp; Red Light</a></li>
+            <li><a href="#services">Private Experiences</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:hello@example.com">hello@example.com</a></li>
+            <li><a href="tel:+10000000000">(000) 000-0000</a></li>
+            <li><a href="https://www.instagram.com/" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="fine">
+        <span>&copy; <span id="year">2026</span> Avida Luna LLC. All rights reserved.</span>
+        <span>All treatments require medical screening and clearance. Not for medical emergencies; call 911.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
