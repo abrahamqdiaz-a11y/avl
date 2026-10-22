@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+
+  /* Deep slate/navy for text and dark surfaces */
+  --color-ink: #1f2a37;
+  --color-ink-soft: #4b5868;
+  --color-navy: #18222e;
+
+  /* Coastal sage */
+  --color-sage-50: #f5f8f4;
+  --color-sage-100: #eaf0e8;
+  --color-sage-200: #d6e2d2;
+  --color-sage-300: #b7cab0;
+  --color-sage-400: #92ad8b;
+  --color-sage-500: #6f8d69;
+  --color-sage-600: #576d52;
+  --color-sage-700: #465842;
+  --color-sage-800: #364433;
+
+  /* Soft metallic gold, for decorative accents only (not body text) */
+  --color-gold: #b8975a;
+  --color-gold-light: #e6d3a3;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    @apply bg-white font-sans text-ink antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-serif font-semibold tracking-tight text-ink;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-sage-600;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@utility gold-rule {
+  @apply h-px w-12 bg-gradient-to-r from-gold to-gold-light;
+}
